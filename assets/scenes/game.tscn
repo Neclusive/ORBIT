@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dtxaj2lnjkl8v" path="res://assets/scripts/arc_gen.gd" id="5_wfsp4"]
 [ext_resource type="Script" uid="uid://oxsxvfqswgwb" path="res://assets/scripts/trail.gd" id="6_phsto"]
 [ext_resource type="AudioStream" uid="uid://cn21k2ugg3rte" path="res://assets/sounds/AKINA.ogg" id="10_k2t1h"]
+[ext_resource type="Script" uid="uid://bflm4pj35cav1" path="res://assets/scripts/audio_stream_player.gd" id="11_phsto"]
 
 [sub_resource type="Gradient" id="Gradient_7jktm"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -278,8 +279,8 @@ shape = SubResource("CircleShape2D_7ax5b")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1100436915]
 stream = ExtResource("10_k2t1h")
-autoplay = true
 parameters/looping = true
+script = ExtResource("11_phsto")
 
 [connection signal="pressed" from="PauseMenu/Control/Resume_Button" to="PauseMenu" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Control/home" to="PauseMenu/Control/home" method="_on_pressed"]

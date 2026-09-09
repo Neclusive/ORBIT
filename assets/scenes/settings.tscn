@@ -52,6 +52,20 @@ button_pressed = true
 text = "RENDER PATH"
 flat = true
 
+[node name="music_button" type="Button" parent="." unique_id=61046875]
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = -100.0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.72046703, 0.7204677, 0.72046703, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.77382356, 0, 1)
+theme_override_font_sizes/font_size = 48
+toggle_mode = true
+button_pressed = true
+text = "PLAY MUSIC"
+flat = true
+
 [node name="home" type="Button" parent="." unique_id=1217504059]
 offset_left = -100.0
 offset_top = 410.0
