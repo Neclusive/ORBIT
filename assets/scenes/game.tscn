@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cetace34bvkm2" path="res://assets/scripts/player.gd" id="5_k2t1h"]
 [ext_resource type="Script" uid="uid://dtxaj2lnjkl8v" path="res://assets/scripts/arc_gen.gd" id="5_wfsp4"]
 [ext_resource type="Script" uid="uid://oxsxvfqswgwb" path="res://assets/scripts/trail.gd" id="6_phsto"]
+[ext_resource type="AudioStream" uid="uid://cn21k2ugg3rte" path="res://assets/sounds/AKINA.ogg" id="10_k2t1h"]
 
 [sub_resource type="Gradient" id="Gradient_7jktm"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -208,12 +209,13 @@ process_material = SubResource("ParticleProcessMaterial_e2o6t")
 script = ExtResource("3_wfsp4")
 
 [node name="Pause_Button" type="Button" parent="." unique_id=442582562]
-offset_left = 850.0
-offset_top = -530.0
-offset_right = 950.0
-offset_bottom = -430.0
+offset_left = 816.0
+offset_top = -524.0
+offset_right = 944.0
+offset_bottom = -396.0
 theme_override_font_sizes/font_size = 48
 text = " | | "
+icon_alignment = 1
 script = ExtResource("3_3w2km")
 
 [node name="Center" type="Sprite2D" parent="." unique_id=1812804610]
@@ -273,6 +275,11 @@ trail_color = Color(0, 0.8, 0, 0.9019608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Center/Player/Area2D" unique_id=1900805765]
 shape = SubResource("CircleShape2D_7ax5b")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1100436915]
+stream = ExtResource("10_k2t1h")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="PauseMenu/Control/Resume_Button" to="PauseMenu" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Control/home" to="PauseMenu/Control/home" method="_on_pressed"]
