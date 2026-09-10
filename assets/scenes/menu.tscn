@@ -102,7 +102,7 @@ offset_top = 488.0
 offset_right = -707.0
 offset_bottom = 519.0
 theme_override_font_sizes/font_size = 24
-text = "Zain Light // v0.3"
+text = "Zain Light // v0.3.1"
 
 [node name="Title" type="Node2D" parent="." unique_id=266445443]
 
