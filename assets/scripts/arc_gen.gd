@@ -1,17 +1,18 @@
 extends Node2D
 
 @export var speed_min: float = 350.0
-@export var speed_max: float = 520.0
+@export var speed_max: float = 450.0
 @export var base_thickness: float = 22.0
 @export var arc_segments: int = 64
 @export var radial_segments: int = 8
 
-@export var min_arc_angle: float = 30.0
-@export var max_arc_angle: float = 140.0
+@export var min_arc_angle: float = 45.0
+@export var max_arc_angle: float = 135.0
 @export var spawn_interval: float = 1.3
 
-@export_range(0, 100) var sticky_spawn_chance: int = 25
-@export var sticky_lifetime: float = 3.0
+@export_range(0, 100) var sticky_spawn_chance: int = 30
+@export var sticky_lifetime_min: float = 3.0
+@export var sticky_lifetime_max: float = 7.0
 @export var sticky_fade_duration: float = 0.5
 
 @export var gradient_texture: GradientTexture1D = preload("res://assets/arc_gradient.tres")
@@ -123,6 +124,7 @@ func on_player_hit() -> void:
 		save_high_score()
 
 	# 2. Pause game physics and rendering timer
+	Engine.time_scale = 1.0
 	get_tree().paused = true
 
 	# 3. Show Game Over panel and update final score displays
@@ -145,7 +147,7 @@ func spawn_arc() -> void:
 			arc.speed = randf_range(speed_min, speed_max)
 			
 			var start_deg: float = randf_range(0.0, 360.0)
-			var arc_size_deg: float = minf(randf_range(min_arc_angle, max_arc_angle), 190.0)
+			var arc_size_deg: float = randf_range(min_arc_angle, max_arc_angle)
 			
 			arc.start_angle = start_deg
 			arc.end_angle = start_deg + arc_size_deg
@@ -156,7 +158,7 @@ func spawn_arc() -> void:
 			
 			if not has_active_sticky_arc() and randi_range(1, 100) <= sticky_spawn_chance:
 				arc.is_sticky = true
-				arc.life_time = sticky_lifetime
+				arc.life_time = randf_range(sticky_lifetime_min, sticky_lifetime_max)
 			else:
 				arc.is_sticky = false
 				arc.life_time = 0.0
